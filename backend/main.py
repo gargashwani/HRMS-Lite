@@ -48,7 +48,12 @@ def mark_attendance(
     attendance: schemas.AttendanceCreate,
     db: Session = Depends(get_db)
 ):
-    return crud.mark_attendance(db, attendance)
+    try:
+        return crud.mark_attendance(db, attendance)
+    except Exception as e:
+        # Surface business-rule errors (like duplicate attendance)
+        # as a proper 400 response with a clear message.
+        raise HTTPException(status_code=400, detail=str(e))
 
 
 @app.get("/attendance/{employee_id}")
