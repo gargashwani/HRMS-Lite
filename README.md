@@ -70,7 +70,7 @@ This project demonstrates full-stack development skills including backend API de
 ### 1. Clone the Repository
 
 ```
-git clone https://github.com/your-username/hrms-lite.git
+git clone https://github.com/gargashwani/HRMS-Lite.git
 cd hrms-lite
 ```
 
